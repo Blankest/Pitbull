@@ -9,56 +9,12 @@ const prefix = "~";
 
 var songs = ["https://www.youtube.com/watch?v=CdXesX6mYUE", "https://www.youtube.com/watch?v=SmM0653YvXU", "https://www.youtube.com/watch?v=hHUbLv4ThOo", "https://www.youtube.com/watch?v=t4H_Zoh7G5A", "https://www.youtube.com/watch?v=EPo5wWmKEaI", "https://www.youtube.com/watch?v=2up_Eq6r6Ko", "https://www.youtube.com/watch?v=0S3foICf5uI", "https://www.youtube.com/watch?v=i0vFid2tKbI", "https://www.youtube.com/watch?v=1hr3Inwbdfc", "https://www.youtube.com/watch?v=HMqgVXSvwGo", "https://www.youtube.com/watch?v=5jlI4uzZGjU", "https://www.youtube.com/watch?v=zaSZE194D4I", "https://www.youtube.com/watch?v=wVz4JbMlD90", "https://www.youtube.com/watch?v=Ejdx6_hYTiY", "https://www.youtube.com/watch?v=cYw-oyJ7AEY", "https://www.youtube.com/watch?v=QECUFmEPbU0", "https://www.youtube.com/watch?v=R7xbhKIiw4Y", "https://www.youtube.com/watch?v=S0vGsyprO54", "https://www.youtube.com/watch?v=AmuKdoe8MvI", "https://www.youtube.com/watch?v=EAyzpLGBI1E", "https://www.youtube.com/watch?v=fnsjjIY3WL8", "https://www.youtube.com/watch?v=omeG3d5cHsI", "https://www.youtube.com/watch?v=dQw4w9WgXcQ", "https://www.youtube.com/watch?v=QpAGSi8fd88", "https://www.youtube.com/watch?v=aAu51I1wYcU", "https://www.youtube.com/watch?v=FUak2C_KEeU", "https://www.youtube.com/watch?v=TGtWWb9emYI"];
 const ww = "https://www.youtube.com/watch?v=FGFrTFakGJo"
-const channels = ["#Wizard101", "#Nether", "#Overworld", "#Aether"]
-const channelID = ["190835797782560769", "212507466842243072", "703234535910801428", "251700656866459658"]
+import channels from "./personal.js"
+import channelID from "./personal.js"
+import myguild from "./personal.js"
 
 const dumb = new Map();
 var waiting = 5000
-
-// while(true) {
-//     setTimeout(() => { 
-//         var chan = "0"
-//         for(var i = 0; i < channelID.length; i++) {
-//             chan = client.channels.cache.get(channelID[i])
-//             if(chan.members.size != 0) {
-//                 break
-//             }
-//             chan = "0"
-//         }
-
-//         if(chan === "0") {surprise()}
-
-//         var connect;
-
-//         //const chan = client.channels.cache.get(channelID[Math.floor(Math.random() * (channelID.length - 1))])
-//         // print channel
-//         chan.join().then((connect) => {
-//             // message.reply("I have established connection").catch((err) => {
-//             //     console.error(err);
-//             // })
-//             const contra = {
-//                 textChannel: "faggot",
-//                 voiceChannel: "faggot",
-//                 connection: null,
-//                 song: [],
-//                 volume: 1,
-//                 playing: true,
-//             }
-//             dumb.set("190809392084549632", contra);
-//             contra.connection = connect
-//             prank(chan, client, connect)
-//             // .catch((err) => {
-//             //     console.error(err);
-//             // });
-//             waiting = Math.random()*20000 + 60000
-//             //console.log(waiting)
-//             surprise();
-//         }).catch((err) => {
-//             console.log(err);
-//             chan.leave();
-//             return;
-//         }) }, waiting)
-// }
 
 function surprise() {
     setTimeout(() => { 
@@ -92,7 +48,7 @@ function surprise() {
                 volume: 1,
                 playing: true,
             }
-            dumb.set("190809392084549632", contra);
+            dumb.set(myguild, contra);
             contra.connection = connect
             prank(chan, client, connect)
             // .catch((err) => {
@@ -278,7 +234,7 @@ function player(message, contract, voiceChannel) {
 }
 
 function prank(chan, client) {
-    const serverQueue = dumb.get("190809392084549632")
+    const serverQueue = dumb.get(myguild)
     const dispatcher = serverQueue.connection.play(ytdl(ww, {filter: "audioonly"})).on("finish", () => {
         chan.leave();
     })
