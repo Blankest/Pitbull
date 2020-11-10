@@ -4,14 +4,16 @@ const ytdl = require("ytdl-core");
 const { randomInt } = require("crypto");
 const { SSL_OP_EPHEMERAL_RSA } = require("constants");
 const client = new Discord.Client();
+const myguild = require("./personal.js")
+const channelID = require("./personal.js")
 
 const prefix = "~";
 
 var songs = ["https://www.youtube.com/watch?v=CdXesX6mYUE", "https://www.youtube.com/watch?v=SmM0653YvXU", "https://www.youtube.com/watch?v=hHUbLv4ThOo", "https://www.youtube.com/watch?v=t4H_Zoh7G5A", "https://www.youtube.com/watch?v=EPo5wWmKEaI", "https://www.youtube.com/watch?v=2up_Eq6r6Ko", "https://www.youtube.com/watch?v=0S3foICf5uI", "https://www.youtube.com/watch?v=i0vFid2tKbI", "https://www.youtube.com/watch?v=1hr3Inwbdfc", "https://www.youtube.com/watch?v=HMqgVXSvwGo", "https://www.youtube.com/watch?v=5jlI4uzZGjU", "https://www.youtube.com/watch?v=zaSZE194D4I", "https://www.youtube.com/watch?v=wVz4JbMlD90", "https://www.youtube.com/watch?v=Ejdx6_hYTiY", "https://www.youtube.com/watch?v=cYw-oyJ7AEY", "https://www.youtube.com/watch?v=QECUFmEPbU0", "https://www.youtube.com/watch?v=R7xbhKIiw4Y", "https://www.youtube.com/watch?v=S0vGsyprO54", "https://www.youtube.com/watch?v=AmuKdoe8MvI", "https://www.youtube.com/watch?v=EAyzpLGBI1E", "https://www.youtube.com/watch?v=fnsjjIY3WL8", "https://www.youtube.com/watch?v=omeG3d5cHsI", "https://www.youtube.com/watch?v=dQw4w9WgXcQ", "https://www.youtube.com/watch?v=QpAGSi8fd88", "https://www.youtube.com/watch?v=aAu51I1wYcU", "https://www.youtube.com/watch?v=FUak2C_KEeU", "https://www.youtube.com/watch?v=TGtWWb9emYI"];
 const ww = "https://www.youtube.com/watch?v=FGFrTFakGJo"
-import channels from "./personal.js"
-import channelID from "./personal.js"
-import myguild from "./personal.js"
+// import channels from "./personal.js"
+// import channelID from "./personal.js"
+// import myguild from "./personal.js"
 
 const dumb = new Map();
 var waiting = 5000
